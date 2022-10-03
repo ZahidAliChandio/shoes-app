@@ -1,6 +1,5 @@
-import { useContext, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import AddButton from '../../UI/AddButton';
-import CartContext from '../../../store/cart-context'
 import Input from '../../UI/Input'
 import classes from './ShoesItemForm.module.css'
 const ShoesItemForm = (props) => {
@@ -11,7 +10,7 @@ const ShoesItemForm = (props) => {
 
         const enteredAmount = amountInputRef.current.value;
 
-        const enteredAmountNumber =+enteredAmount;
+        const enteredAmountNumber = +enteredAmount;
         if (enteredAmount.trim().length === 0 ||
             enteredAmountNumber < 1 ||
             enteredAmountNumber > 5) {
@@ -37,7 +36,7 @@ const ShoesItemForm = (props) => {
                 />
             </div>
             <div>
-                <AddButton>+ Add</AddButton>
+                <AddButton type="submit">+ Add</AddButton>
             </div>
         </form>
     )
