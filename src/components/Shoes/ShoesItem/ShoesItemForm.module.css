@@ -12,7 +12,8 @@
     font-weight: bold;
     margin-left: 0.5rem;
     padding: 0.79rem 0.3rem;
-    width: 2.5rem;
-    height: 1.5rem;
+    width: 2.9rem;
+    height: 1.8rem;
+    border-radius: 5px;
     border: 2px solid rgb(204, 204, 204);
 }

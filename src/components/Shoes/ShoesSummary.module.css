@@ -7,7 +7,7 @@
     text-align: center;
     background-color: rgb(231, 230, 230);
     box-shadow: 4px 4px 20px 5px rgba(0,0,0,0.25);
-    z-index: 30;
+    z-index: 5;
 }
 .summary p{
     line-height:1.4rem;

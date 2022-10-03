@@ -23,6 +23,7 @@ const ShoesItemForm = (props) => {
     return (
         <form onSubmit={submitHandler} className={classes.form}>
             <div className="d-flex align-center">
+                <h3>Amount </h3>
                 <Input
                     ref={amountInputRef}
                     input={{
