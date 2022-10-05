@@ -31,14 +31,14 @@
 }
 
 .actions button {
-    font-size: large;
+    font-size:large;
     margin-right: 0.4rem;
     width: 2.8rem;
     height: 2.2rem;
     border-radius: 3px;
     background-color: transparent;
     color: rgb(0, 0, 67);
-    border: 1px solid gray;
+    border: 1px solid rgb(0, 0, 158);
     cursor: pointer;
 }
 
@@ -46,6 +46,7 @@
 .cart-item button:active {
     background-color: rgb(0, 0, 67);
     color: white;
+    border: none;
 }
 
 @media only screen and (min-width:768px) {
