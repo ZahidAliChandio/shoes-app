@@ -2,12 +2,14 @@ import { useRef, useState } from 'react';
 import AddButton from '../../UI/AddButton';
 import Input from '../../UI/Input'
 import classes from './ShoesItemForm.module.css'
+
 const ShoesItemForm = (props) => {
     const [amountIsValid, setAmoutIsValid] = useState(true);
     const amountInputRef = useRef();
+
+
     const submitHandler = (event) => {
         event.preventDefault();
-
         const enteredAmount = amountInputRef.current.value;
 
         const enteredAmountNumber = +enteredAmount;

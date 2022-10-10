@@ -1,35 +1,39 @@
+import { useEffect, useState } from 'react';
 import Card from '../UI/Card';
 import ShoesItem from './ShoesItem/ShoesItem'
+import shoes from '../../apis/shoes'
 import classes from './AvailableShoes.module.css'
-const DUMMY_SHOES = [
-    {
-        id: 's1',
-        name: 'NIKE',
-        description: 'Finest fish and veggies',
-        price: 50.99,
-    },
-    {
-        id: 's2',
-        name: 'Adidas',
-        description: 'A german specialty!',
-        price: 110.5,
-    },
-    {
-        id: 's3',
-        name: 'GUCCI',
-        description: 'American, raw, meaty',
-        price: 80.99,
-    },
-    {
-        id: 's4',
-        name: 'SERVICE',
-        description: 'Healthy...and green...',
-        price: 90.99,
-    },
-];
 
 const AvailableShoes = () => {
-    const MealsList = DUMMY_SHOES.map((shoe) => (
+    const [shoesList, setShoesList] = useState([]);
+
+    const getData = async () => {
+        try {
+            const response = await shoes.get('shoes.json');
+            const data = response.data;
+
+            let allShoes = [];
+
+            for (const key in data) {
+                allShoes.push({
+                    id: key,
+                    name: data[key].name,
+                    description: data[key].description,
+                    price: data[key].price
+                })
+            }
+            console.log(allShoes);
+            setShoesList(allShoes);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    useEffect(() => {
+        getData();
+        // shoesList.map((shoe) => (
+        // ))
+    }, [])
+    const MealsList = shoesList.map((shoe) => (
         <ShoesItem
             key={shoe.id}
             id={shoe.id}
