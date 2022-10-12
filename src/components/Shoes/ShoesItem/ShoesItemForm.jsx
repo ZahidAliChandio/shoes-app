@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import AddButton from '../../UI/AddButton';
+import Button from '../../UI/Button';
 import Input from '../../UI/Input'
 import classes from './ShoesItemForm.module.css'
 
@@ -25,20 +25,17 @@ const ShoesItemForm = (props) => {
         <form onSubmit={submitHandler} className={classes.form}>
             <div className="d-flex align-center">
                 <h3>Amount </h3>
-                <Input
+                <input
                     ref={amountInputRef}
-                    input={{
-                        id: 'amount_' + props.id,
-                        type: 'number',
-                        min: '1',
-                        max: '5',
-                        step: '1',
-                        defaultValue: '1',
-                    }}
+                    id={`amount_ ${props.id}`} type='number'
+                    min='1'
+                    max='5'
+                    step='1'
+                    defaultValue='1'
                 />
             </div>
             <div>
-                <AddButton type="submit">+ Add</AddButton>
+                <Button type="submit" fontSize='1rem'>+ Add</Button>
             </div>
         </form>
     )

@@ -6,7 +6,8 @@ const ShoesItem = (props) => {
 
     const cartCtx = useContext(CartContext);
 
-    const price = `$${props.price.toFixed(2)}`;
+    let price = parseFloat(props.price);
+    price = `$${price.toFixed(2)}`;
 
     const addToCartHandler = (amount) => {
         cartCtx.onItemAdd({
@@ -18,7 +19,7 @@ const ShoesItem = (props) => {
     }
     return (
         <li className={classes.shoe}>
-            <div>
+            <div className='align-left'>
                 <h3>{props.name}</h3>
                 <div className={classes.description}>{props.description}</div>
                 <div className={classes.price}>{price}</div>

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import CartContext from '../../store/cart-context'
 import Modal from "../UI/Modal";
 import CartItem from './CartItem'
+import Button from '../UI/Button'
 import classes from './Cart.module.css'
 
 const Cart = (props) => {
@@ -39,8 +40,8 @@ const Cart = (props) => {
                 <span>{totalAmount}</span>
             </div>
             <div className={classes.actions}>
-                <button className={classes.order} onClick={props.onClose}>Close</button>
-                {hasItems && <button className={classes.order}>Order</button>}
+                <Button className='order' onClick={props.onClose}>Close</Button>
+                {hasItems && <Button className={classes.order}>Order</Button>}
             </div>
         </Modal>
     )

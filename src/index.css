@@ -21,3 +21,6 @@ code {
 .align-center{
   align-items: center;
 }
+.align-left{
+  text-align: left;
+}

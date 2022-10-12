@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react';
-import Card from '../UI/Card';
 import ShoesItem from './ShoesItem/ShoesItem'
 import shoes from '../../apis/shoes'
+import Card from '../UI/Card';
+import Button from '../UI/Button'
 import classes from './AvailableShoes.module.css'
+import {useNavigate} from 'react-router-dom'
 
 const AvailableShoes = () => {
+    
     const [shoesList, setShoesList] = useState([]);
+    const navigate=useNavigate();
 
     const getData = async () => {
         try {
@@ -22,18 +26,22 @@ const AvailableShoes = () => {
                     price: data[key].price
                 })
             }
-            console.log(allShoes);
             setShoesList(allShoes);
         } catch (error) {
             console.log(error);
         }
     }
+    const addShoe=()=>{
+        navigate('add-shoe')
+    }
+
     useEffect(() => {
+
         getData();
-        // shoesList.map((shoe) => (
-        // ))
+
     }, [])
-    const MealsList = shoesList.map((shoe) => (
+
+    const ShoesList = shoesList.map((shoe) => (
         <ShoesItem
             key={shoe.id}
             id={shoe.id}
@@ -45,7 +53,8 @@ const AvailableShoes = () => {
     return (
         <section className={classes.shoes}>
             <Card>
-                <ul>{MealsList}</ul>
+                <ul>{ShoesList}</ul>
+                <Button className='add-shoe' onClick={addShoe}>Add More</Button>
             </Card>
         </section>
     );

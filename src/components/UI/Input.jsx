@@ -4,7 +4,7 @@ const Input = React.forwardRef((props, ref) => {
     return (
         <div className={classes.input}>
             <label htmlFor={props.input.id}>{props.lable}</label>
-            <input ref={ref} {...props.input}/>
+            <input ref={ref} {...props.input} value={props.value} onChange={props.onChange} />
         </div>
     )
 });
